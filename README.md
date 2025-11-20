@@ -11,6 +11,8 @@ Nix home-manager module for using [jump hosts](https://en.wikipedia.org/wiki/Jum
 
 ## Usage
 
+Real-world example => https://github.com/srid/nixos-config/blob/master/modules/home/all/juspay.nix
+
 ```nix
 {
   imports = [ ./path/to/jumphost-nix/module.nix ];
