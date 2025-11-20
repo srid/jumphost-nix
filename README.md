@@ -5,9 +5,8 @@ Nix home-manager module for using [jump hosts](https://en.wikipedia.org/wiki/Jum
 ## Features
 
 - **SSH Jump Host**: `git clone` repositories that are only accessible from the jump host (e.g., company Bitbucket/GitLab behind firewall)
-- **SOCKS5 Proxy**: Automatic background SSH tunnel for SOCKS5 proxy access (macOS launchd & Linux systemd)
-- **Git Configuration**: Optional git email configuration for work repositories
-- **Cross-platform**: Works on both macOS and Linux
+- **SOCKS5 Proxy**: Access internal company websites/services through your browser without VPN (automatic background SSH tunnel)
+- **Git Identity**: Automatically use your work email for commits in work repositories
 
 ## Usage
 
@@ -46,10 +45,10 @@ Real-world example => https://github.com/srid/nixos-config/blob/master/modules/h
 
 ## Use Cases
 
-- Access company resources without VPN
-- Proxy git operations through a bastion host
-- Route traffic through a remote machine via SOCKS5
-- Automatically configure git identity for work projects
+- Work from home without company VPN
+- Access location-restricted internal services (Jira, Confluence, internal dashboards)
+- Clone and push to self-hosted git repositories behind corporate firewall
+- Keep work and personal git identities separate automatically
 
 ## Using the SOCKS5 Proxy
 
