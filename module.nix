@@ -85,17 +85,18 @@ in
   config = lib.mkIf cfg.enable {
     programs.ssh = {
       enable = true;
-      matchBlocks =
+      settings =
         (lib.mapAttrs
           (hostname: hostCfg: {
-            user = hostCfg.user;
-            proxyJump = cfg.host;
-            identityFile = lib.mkIf (hostCfg.identityFile != null) hostCfg.identityFile;
+            User = hostCfg.user;
+            ProxyJump = cfg.host;
+          } // lib.optionalAttrs (hostCfg.identityFile != null) {
+            IdentityFile = hostCfg.identityFile;
           })
           cfg.sshHosts)
         // {
           "${cfg.host}" = {
-            forwardAgent = true;
+            ForwardAgent = true;
           };
         };
     };
