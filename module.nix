@@ -113,7 +113,7 @@ in
     };
 
     # SOCKS5 proxy via SSH tunnel to jump host (macOS)
-    launchd.agents.jumphost-socks5-proxy = lib.mkIf (cfg.socks5Proxy.enable && pkgs.stdenv.isDarwin) {
+    launchd.agents.jumphost-socks5-proxy = lib.mkIf (cfg.socks5Proxy.enable && pkgs.stdenv.hostPlatform.isDarwin) {
       enable = true;
       config = {
         ProgramArguments = [
@@ -133,7 +133,7 @@ in
     };
 
     # SOCKS5 proxy via SSH tunnel to jump host (Linux)
-    systemd.user.services.jumphost-socks5-proxy = lib.mkIf (cfg.socks5Proxy.enable && pkgs.stdenv.isLinux) {
+    systemd.user.services.jumphost-socks5-proxy = lib.mkIf (cfg.socks5Proxy.enable && pkgs.stdenv.hostPlatform.isLinux) {
       Unit = {
         Description = "SOCKS5 proxy via SSH tunnel to work jump host";
         After = [ "network.target" ];
